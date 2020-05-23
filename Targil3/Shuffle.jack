@@ -1,0 +1,29 @@
+//a wonderful algorithm we found in google and implemented ourselves
+class Shuffle {
+   // constructor Shuffle new()
+   // {
+     //   return this;
+   // }
+	function String shuffle(String str) {
+        var int pos, i,strLen;
+        var String newString ;
+        var char temp;
+        let i = 0;
+		let strLen  = str.length();
+        let newString = String.new(strLen);
+        do Random.setSeed(289);
+       while(i < strLen) {
+                do newString.appendChar(str.charAt(i));
+                let i = i + 1;
+            }
+        let i = 0;
+        while(i < strLen) {
+			let pos = Random.randRange(strLen - 1);
+            let temp = newString.charAt(pos);
+            do newString.setCharAt(pos, newString.charAt(i));
+            do newString.setCharAt(i, temp);
+            let i = i + 1;
+		}
+        return newString;
+    }
+}

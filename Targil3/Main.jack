@@ -1,0 +1,60 @@
+class Main {
+	function void main() {
+        var String str, newString, guess;
+        var bool isFalse;
+        var int i, try;
+        let try = 1;
+        let isFalse = false;
+        let str = Keyboard.readLine("pls. Enter a word to encode ");
+        do Screen.clearScreen();  
+        let newString = Shuffle.shuffle(str);
+        do Output.printString("This is the encoded word");   
+        do Output.println();    
+        do Output.printString(newString); 
+        do Output.println();
+        do Output.printString("U got 3 guesses:"); 
+        do Output.println(); 
+        do Output.println(); 
+        while(try < 4 & ~(isFalse))
+        {
+            do Output.printString("you got ");
+            do Output.printInt(4 - try);
+            do Output.printString(" more guesses");
+            do Output.println(); 
+            let guess = Keyboard.readLine(" Enter your Guess ");
+            let i = 0 ;
+            while (i < str.length() & ~(isFalse)){
+                if(~(str.charAt(i) = guess.charAt(i)))
+                {
+                    if (~(try = 3)){
+                    do Output.printString("you Failed Try Again ");
+                    do Output.println(); 
+                    }
+                    else{
+                    do Output.printString("you Failed");
+                    do Output.println(); 
+                    }
+                    let isFalse = true;
+                }
+                let i = i + 1;
+        }
+        if(~(isFalse)){
+            do Output.printString("you won");
+            do Output.println(); 
+            let try = 4;
+        }
+        else{
+        let try = try + 1;
+        let isFalse = false;
+        }
+        }
+        do Output.printString("The End!!!! ");
+        do Memory.deAlloc(str);
+        do Memory.deAlloc(newString);
+        do newString.dispose();
+        do Output.println();    
+        do Output.printString(newString); 
+   
+        return;
+    }
+}
